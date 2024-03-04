@@ -9,9 +9,27 @@ readme = "README.md"
 python = "^3.10"
 pre-commit = "^3.6.2"
 
+[tool.mypy]
+disallow_subclassing_any = false
+exclude = "fabfile"
+ignore_missing_imports = true
+implicit_reexport = true
+plugins = "pydantic.mypy"
+python_version = "3.11"
+show_error_codes = true
+strict = true
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.0"
+mypy = "^1.8.0"
+black = "^24.2.0"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]
